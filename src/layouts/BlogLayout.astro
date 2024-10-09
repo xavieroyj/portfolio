@@ -1,0 +1,10 @@
+---
+const { frontmatter } = Astro.props;
+import GenericLayout from "../layouts/GenericLayout.astro";
+---
+
+<GenericLayout title={frontmatter.title}>
+    <main class="mx-auto container">
+        <h1>The author name</h1>
+    </main>
+</GenericLayout>

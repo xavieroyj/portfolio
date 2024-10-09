@@ -1,0 +1,127 @@
+{
+  "basics": {
+    "name": "Xavier Ong",
+    "label": "Programmer",
+    "image": "",
+    "email": "xavier.oyj1999@gmail.com",
+    "phone": "",
+    "url": "https://xavieroyj.dev",
+    "summary": "A summary of John Doe…",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Singapore",
+      "countryCode": "SG",
+      "region": "Singapore"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "john",
+        "url": "https://twitter.com/john"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Company",
+      "position": "President",
+      "url": "https://company.com",
+      "startDate": "2013-01-01",
+      "endDate": "2014-01-01",
+      "summary": "Description…",
+      "highlights": ["Started the company"]
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "University of Glasgow",
+      "url": "https://institution.com/",
+      "area": "Computing Science",
+      "studyType": "Bachelor",
+      "startDate": "2022-01-01",
+      "endDate": "2025-01-01",
+      "score": "3.78",
+      "courses": ["DB1101 - Basic SQL"]
+    },
+    {
+      "institution": "Nanyang Polytechnic",
+      "url": "https://institution.com/",
+      "area": "Infocomm and Security",
+      "studyType": "Bachelor",
+      "startDate": "2011-01-01",
+      "endDate": "2013-01-01",
+      "score": "4.0",
+      "courses": ["DB1101 - Basic SQL"]
+    }
+  ],
+  "awards": [
+    {
+      "title": "PSA Box Challenge Hackathon Finalist 2019",
+      "date": "2019-01-01",
+      "awarder": "PSA International",
+      "summary": "There is no spoon."
+    },
+    {
+      "title": "Nominated for Tanzu Award in Cloud and Distributed Computing 2023",
+      "date": "2019-11-01",
+      "awarder": "Dell",
+      "summary": "Nominated for our PSD2 Project (StoryCrafter). It's a mobile application written in Kotlin using technologies such as TTS (Text to Speech) and STT (Speech to Text) to provide an interactive learning experience for kids from underdeveloped countries."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "AWS Academy Cloud Foundations",
+      "date": "2023-01-01",
+      "issuer": "Amazon",
+      "url": ""
+    },
+    {
+      "name": "AWS Academy Cloud Architecture",
+      "date": "2023-01-01",
+      "issuer": "Amazon",
+      "url": ""
+    }
+  ],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Frontend Development",
+      "level": "Master",
+      "keywords": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "name": "Backend Development",
+      "level": "Master",
+      "keywords": ["C#", "Python", "JavaScript"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Chinese",
+      "fluency": "Native speaker"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Skating",
+      "keywords": ["Roller Blades", "Ice Skating"]
+    }
+  ],
+  "references": [],
+  "projects": [
+    {
+      "name": "LabEquip Mobile Application",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-01",
+      "description": "Education application that identifies lab equipment and display the related information so that students are able to utilise lab equipment safely and correctly.",
+      "highlights": [""],
+      "url": ""
+    }
+  ]
+}
