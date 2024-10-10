@@ -3,104 +3,270 @@ import GenericLayout from "../layouts/GenericLayout.astro";
 import { Download } from "lucide-astro";
 ---
 
-<GenericLayout title="About">
-    <main class="mx-auto container px-4 md:px-16">
-        <img src="notion-avatar.svg" class="h-32 w-32" alt="Notion Avatar" />
-        <h1>Hi there, I'm Xavier</h1>
-        <p>
-            I'm currently studying in SIT which has a joint admission with
-            University of Glasgow. I'm currently pursing a degree in Computing
-            Science. Feel free to reach out to me about any questions that you
-            have. You can find my socials below.
-            <br />
+<GenericLayout title="About Me">
+    <main class="mx-auto container px-4 md:px-16 flex flex-col gap-4">
+        <div class="flex flex-col items-center text-center">
+            <img
+                src="notion-avatar.svg"
+                class="h-32 w-32"
+                alt="Notion Avatar"
+            />
+            <h1 class="text-4xl font-bold">Hey there, I'm Xavier</h1>
+            <p class="pt-2">
+                I'm currently pursing a degree in Computing Science at
+                University of Glasgow. <br /><br />
+                Concurrently, I'm working on a bus chartering service called <a
+                    href="https://shiftbus.com"
+                    class="text-purple-500 underline"
+                    target="_blank">Shiftbus</a
+                > with a group of friends. <br />
+                Feel free to reach out to me about any questions that you have.
+            </p>
 
-            <div class="pt-8">
-                View my resume below, alternatively you can download it below.
-                <br />
-                <button
-                    class="border px-3 py-2 rounded-lg hover:border-purple-600"
+            <button
+                class="border px-3 py-2 rounded-lg hover:border-purple-600 mt-4 hover:bg-purple-500 hover:text-white"
+            >
+                <a
+                    href="Xavier_Resume.pdf"
+                    class="flex items-center gap-x-2"
+                    download
                 >
-                    <a
-                        href="Xavier_Resume.pdf"
-                        class="flex items-center gap-x-2"
-                        download
-                    >
-                        <Download size="24" />
-                        <div>Download my Resume</div>
-                    </a>
-                </button>
-            </div>
-        </p>
+                    <Download size="24" />
+                    <div>Download my Resume</div>
+                </a>
+            </button>
+        </div>
 
         <hr class="my-4" />
 
-        <h1 class="text-4xl font-bold pb-8 text-purple-500">Experience</h1>
-        <ol class="relative border-s-2 border-purple-200">                  
-            <li class="mb-10 ms-6">
-                <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                    <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                    </svg>
-                </span>
-                <h3 class="mb-1 text-lg font-semibold text-gray-900">NPU Physical Implementation (Internship) - MediaTek</h3>
-                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">September 2024 - Present</time>
-                <ul class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400">
-                    <li>Worked on scripting and automation for the report handling of the NPU Physical Implementation team.</li>
-                </ul>
-            </li>
-            <li class="ms-6 mb-10">
-                <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                    <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                    </svg>
-                </span>
-                <h3 class="mb-1 text-lg font-semibold">Software Developer (Part-time) - OrangeKloud, Inc</h3>
-                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">September 2023 - October 2023</time>
-                <ul class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400">
-                    <li>Participated in redesigning eMobiq, OrangeKloud's low-code software</li>
-                    <li>Collaborated with full-time staff and part-timers on the development team</li>
-                    <li>Implemented UI design team's vision for the software</li>
-                    <li>Self-taught React and Bootstrap to align with the project's tech stack</li>
-                    <li>Contributed to the redesign while expanding skills in React and Bootstrap</li>
-                </ul>
-            </li>
-            <li class="ms-6 mb-10">
-                <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                    <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                    </svg>
-                </span>
-                <h3 class="mb-1 text-lg font-semibold">Software Developer (Part-time) - OrangeKloud, Inc</h3>
-                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Mar 2020 - Apr 2020</time>
-                <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-                    <ul class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400">
-                        <li>Collaborated on developing an internal application using a low-code platform</li>
-                        <li>Designed interface according to UI specifications from the company's designer</li>
-                        <li>Self-taught CSS to enhance visual appeal and implement complex design elements</li>
-                        <li>Successfully demonstrated diverse capabilities of the low-code software</li>
-                        <li>Expanded skill set in UI design and CSS implementation</li>
+        <section>
+            <h1 class="text-4xl font-bold pb-4 text-purple-500">Education</h1>
+            <!-- Create a card for each education -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div
+                    class="bg-white p-4 dark:bg-gray-800 rounded-lg border shadow-md"
+                >
+                    <h2 class="text-xl font-bold">
+                        Singapore Institute of Technology (SIT)
+                    </h2>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">
+                        2021 - Present
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 pt-4">
+                        Bachelor of Science with Honours in Computing Science.<br
+                        />
+                        Joint degree program with University of Glasgow
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-gray-800 p-4 rounded-lg border shadow-md"
+                >
+                    <h2 class="text-xl font-bold">Nanyang Polytechnic</h2>
+                    <!-- Add graduation date -->
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">
+                        2017 - 2020
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 pt-4">
+                        Diploma in Infocomm & Security, Information Technology
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h1 class="text-4xl font-bold pb-4 text-purple-500">Experience</h1>
+            <ol class="relative border-s-2 border-purple-200">
+                <li class="mb-10 ms-6">
+                    <span
+                        class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+                    >
+                        <svg
+                            class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                            ></path>
+                        </svg>
+                    </span>
+                    <h3
+                        class="mb-1 text-lg font-semibold text-gray-900 dark:text-white"
+                    >
+                        NPU Physical Implementation (Internship) - MediaTek
+                    </h3>
+                    <time
+                        class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                        >September 2024 - Present</time
+                    >
+                    <ul
+                        class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400"
+                    >
+                        <li>
+                            Worked on scripting and automation for the report
+                            handling of the NPU Physical Implementation team.
+                        </li>
                     </ul>
-                </p>
-            </li>
-            <li class="ms-6 mb-10">
-                <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                    <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                    </svg>
-                </span>
-                <h3 class="mb-1 text-lg font-semibold">Software Developer (Internship) - PSA Corporation Limited</h3>
-                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">May 2019 - Aug 2019</time>
-                <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-                    <ul class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400">
-                        <li>Developed a method for silent software installation on new devices</li>
-                        <li>Experimented with PowerShell and Win32API for automated installations</li>
-                        <li>Created a drag-and-drop application for repositioning cameras on a virtual map</li>
-                        <li>Streamlined onboarding process for new employees</li>
-                        <li>Enhanced skills in automation and application development</li>
+                </li>
+                <li class="ms-6 mb-10">
+                    <span
+                        class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+                    >
+                        <svg
+                            class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                            ></path>
+                        </svg>
+                    </span>
+                    <h3
+                        class="mb-1 text-lg font-semibold text-gray-900 dark:text-white"
+                    >
+                        Software Developer (Part-time) - OrangeKloud, Inc
+                    </h3>
+                    <time
+                        class="block mb-2 text-sm font-normal leading-none text-gray-500"
+                        >September 2023 - October 2023</time
+                    >
+                    <ul
+                        class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400"
+                    >
+                        <li>
+                            Participated in redesigning eMobiq, OrangeKloud's
+                            low-code software
+                        </li>
+                        <li>
+                            Collaborated with full-time staff and part-timers on
+                            the development team
+                        </li>
+                        <li>
+                            Implemented UI design team's vision for the software
+                        </li>
+                        <li>
+                            Self-taught React and Bootstrap to align with the
+                            project's tech stack
+                        </li>
+                        <li>
+                            Contributed to the redesign while expanding skills
+                            in React and Bootstrap
+                        </li>
                     </ul>
-                </p>
-            </li>
-        </ol>
-        
+                </li>
+                <li class="ms-6 mb-10">
+                    <span
+                        class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+                    >
+                        <svg
+                            class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                            ></path>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-lg font-semibold">
+                        Software Developer (Part-time) - OrangeKloud, Inc
+                    </h3>
+                    <time
+                        class="block mb-2 text-sm font-normal leading-none text-gray-500"
+                        >Mar 2020 - Apr 2020</time
+                    >
+                    <p
+                        class="text-base font-normal text-gray-500 dark:text-gray-400"
+                    >
+                        <ul
+                            class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400"
+                        >
+                            <li>
+                                Collaborated on developing an internal
+                                application using a low-code platform
+                            </li>
+                            <li>
+                                Designed interface according to UI
+                                specifications from the company's designer
+                            </li>
+                            <li>
+                                Self-taught CSS to enhance visual appeal and
+                                implement complex design elements
+                            </li>
+                            <li>
+                                Successfully demonstrated diverse capabilities
+                                of the low-code software
+                            </li>
+                            <li>
+                                Expanded skill set in UI design and CSS
+                                implementation
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+                <li class="ms-6 mb-10">
+                    <span
+                        class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+                    >
+                        <svg
+                            class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                            ></path>
+                        </svg>
+                    </span>
+                    <h3
+                        class="mb-1 text-lg font-semibold text-gray-900 dark:text-white"
+                    >
+                        Software Developer (Internship) - PSA Corporation
+                        Limited
+                    </h3>
+                    <time
+                        class="block mb-2 text-sm font-normal leading-none text-gray-500"
+                        >May 2019 - Aug 2019</time
+                    >
+                    <p
+                        class="text-base font-normal text-gray-500 dark:text-gray-400"
+                    >
+                        <ul
+                            class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400"
+                        >
+                            <li>
+                                Developed a method for silent software
+                                installation on new devices
+                            </li>
+                            <li>
+                                Experimented with PowerShell and Win32API for
+                                automated installations
+                            </li>
+                            <li>
+                                Created a drag-and-drop application for
+                                repositioning cameras on a virtual map
+                            </li>
+                            <li>
+                                Streamlined onboarding process for new employees
+                            </li>
+                            <li>
+                                Enhanced skills in automation and application
+                                development
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+            </ol>
+        </section>
     </main></GenericLayout
 >

@@ -1,30 +1,86 @@
 ---
+import { Moon, Sun } from "lucide-astro";
+
 const { title } = Astro.props;
 ---
 
-<html lang="en">
-    <!-- Change this to BaseHead component later on  -->
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
-    </head>
-    <body>
-        <div class="flex flex-col h-screen">
-            <nav class="flex justify-between px-3 py-2">
-                <div class="flex gap-x-4">
-                    <a href="/">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/contact">Contact</a>
-                    <a href="/blog">Blog</a>
-                </div>
-            </nav>
+<html lang="en" class="dark">
+  <!-- Change this to BaseHead component later on  -->
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script is:inline>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
 
-            <div class="grow">
-                <slot />
-            </div>
+  <body class="dark:bg-black dark:text-white bg-white text-black">
+    <div class="flex flex-col h-screen">
+      <nav class="flex justify-between px-3 py-2">
+        <div class="flex gap-x-4">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/blog">Blog</a>
         </div>
-    </body>
+        <button
+          type="button"
+          class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-200 ring-gray-300 transition-all hover:ring-2 dark:bg-gray-600 sm:ml-3"
+          id="theme-selector"
+        >
+          <span class="sr-only"
+            >Enable <span class="dark:hidden">light</span><span
+              class="hidden dark:inline">dark</span
+            > mode</span
+          >
+          <Sun size="24" class="hidden dark:inline" />
+          <Moon size="24" class="dark:hidden" />
+        </button>
+      </nav>
+
+      <div class="grow">
+        <slot />
+      </div>
+    </div>
+
+    <!-- Footer scripts should run here so as to load faster -->
+    <script>
+      const themeToggleButton = document.getElementById("theme-selector");
+      const html = document.documentElement;
+
+      // Function to set the theme
+      function setTheme(isDark: boolean) {
+        if (isDark) {
+          html.classList.add("dark");
+          localStorage.theme = "dark";
+        } else {
+          html.classList.remove("dark");
+          localStorage.theme = "light";
+        }
+      }
+
+      // Set initial theme
+      setTheme(
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches),
+      );
+
+      // Toggle theme on button click
+      themeToggleButton?.addEventListener("click", () => {
+        setTheme(!html.classList.contains("dark"));
+      });
+    </script>
+  </body>
 </html>
