@@ -11,7 +11,7 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>Xavier's Portfolio - {title}</title>
     <script is:inline>
       if (
         localStorage.theme === "dark" ||
@@ -27,13 +27,30 @@ const { title } = Astro.props;
 
   <body class="dark:bg-black dark:text-white bg-white text-black">
     <div class="flex flex-col h-screen">
-      <nav class="flex justify-between px-3 py-2">
+      <nav class="flex justify-between px-3 py-2 items-center">
         <div class="flex gap-x-4">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/blog">Blog</a>
+          <a
+            href="/"
+            class={`hover:text-purple-500 transition-colors ${Astro.url.pathname === "/" ? "underline underline-offset-4 text-purple-500" : ""}`}
+            >Home</a
+          >
+          <a
+            href="/about"
+            class={`hover:text-purple-500 transition-colors ${Astro.url.pathname === "/about" ? "underline underline-offset-4 text-purple-500" : ""}`}
+            >About</a
+          >
+          <a
+            href="/contact"
+            class={`hover:text-purple-500 transition-colors ${Astro.url.pathname === "/contact" ? "underline underline-offset-4 text-purple-500" : ""}`}
+            >Contact</a
+          >
+          <a
+            href="/blog"
+            class={`hover:text-purple-500 transition-colors ${Astro.url.pathname === "/blog" ? "underline underline-offset-4 text-purple-500" : ""}`}
+            >Blog</a
+          >
         </div>
+
         <button
           type="button"
           class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-200 ring-gray-300 transition-all hover:ring-2 dark:bg-gray-600 sm:ml-3"
