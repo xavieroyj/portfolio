@@ -1,15 +1,13 @@
 ---
 import GenericLayout from "../layouts/GenericLayout.astro";
+import notionAvatar from "../assets/notion-avatar.svg";
+import { Image } from "astro:assets";
 ---
 
 <GenericLayout title="About Me">
     <main class="mx-auto container px-4 md:px-16 flex flex-col gap-4">
         <div class="flex flex-col items-center text-center">
-            <img
-                src="notion-avatar.svg"
-                class="h-32 w-32"
-                alt="Notion Avatar"
-            />
+            <Image src={notionAvatar} alt="Rabbit" class={"h-32 w-32"} />
             <h1 class="text-4xl font-bold">Hey there, I'm Xavier</h1>
             <p class="pt-2">
                 I'm currently pursing a degree in Computing Science at
