@@ -1,10 +1,61 @@
 ---
 const { frontmatter } = Astro.props;
+import { ArrowLeft, UserCircle, Calendar, Clock } from "lucide-astro";
 import GenericLayout from "../layouts/GenericLayout.astro";
+import { convertDateFormat } from "../lib/helper";
 ---
 
 <GenericLayout title={frontmatter.title}>
-    <main class="mx-auto container">
-        <h1>The author name</h1>
+    <main class="container mx-auto px-4 py-8">
+        <div class="mb-8">
+            <a
+                href="/blog"
+                class="inline-flex items-center text-sm text-muted-foreground hover:text-primary"
+            >
+                <ArrowLeft class="mr-2 h-4 w-4" />
+                Back to all posts
+            </a>
+        </div>
+
+        <article>
+            <div class="space-y-4">
+                <h1 class="text-4xl font-bold tracking-tight">
+                    {frontmatter.title}
+                </h1>
+                <div class="flex items-center space-x-2">
+                    <UserCircle class="h-6 w-6 text-muted-foreground" />
+                    <div>
+                        <p class="text-sm font-medium">{frontmatter.author}</p>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center space-x-4 text-sm text-muted-foreground"
+                >
+                    <span class="inline-flex items-center">
+                        <Calendar className="mr-1 h-4 w-4" />
+                        {convertDateFormat(frontmatter.pubDate)}
+                    </span>
+                    <span class="inline-flex items-center">
+                        <Clock className="mr-1 h-4 w-4" /> 5 min read
+                    </span>
+                </div>
+
+                <!-- Tags -->
+                <div class="flex space-x-2">
+                    {
+                        frontmatter.tags.map((tag: any) => {
+                            return (
+                                <div class="bg-slate-800 text-white px-2 border rounded-full">
+                                    {tag}
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+
+                <!-- Main data -->
+                <slot />
+            </div>
+        </article>
     </main>
 </GenericLayout>

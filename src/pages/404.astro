@@ -1,16 +1,14 @@
 ---
 import { Rocket } from "lucide-astro";
 import GenericLayout from "../layouts/GenericLayout.astro";
+import { Image } from "astro:assets";
+import rabbitImage from "../assets/rabbit-svgrepo.svg";
 ---
 
 <GenericLayout title="Found the rabbit hole!">
     <main class="h-full flex justify-center items-center text-center">
         <div>
-            <img
-                src="rabbit-svgrepo.svg"
-                class="h-32 w-32 mx-auto"
-                alt="Rabbit"
-            />
+            <Image src={rabbitImage} alt="Rabbit" class={"h-32 w-32 mx-auto"} />
             <h1 class="text-4xl font-bold">
                 You have fallen down the rabbit hole.
             </h1>
