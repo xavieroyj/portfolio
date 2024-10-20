@@ -3,7 +3,9 @@ import GenericLayout from "../layouts/GenericLayout.astro";
 import { convertDateFormat } from "../lib/helper";
 import { getCollection } from "astro:content";
 
-const blogEntries = await getCollection("blogs");
+const blogEntries = await getCollection("blogs", ({ data }) => {
+    return data.draft !== true;
+});
 ---
 
 <GenericLayout title="Blog">

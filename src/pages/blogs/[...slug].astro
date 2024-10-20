@@ -3,7 +3,10 @@ import BlogLayout from "../../layouts/BlogLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-    const blogEntries = await getCollection("blogs");
+    const blogEntries = await getCollection("blogs", ({ data }) => {
+        return data.draft !== true;
+    });
+    // Prevent showing it server side when it's draft
     return blogEntries.map((entry) => ({
         params: { slug: entry.slug },
         props: { entry },
