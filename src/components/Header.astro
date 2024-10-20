@@ -1,0 +1,30 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+
+const navItems = [
+    { href: "/", text: "Home" },
+    { href: "/about", text: "About" },
+    { href: "/contact", text: "Contact" },
+    { href: "/blog", text: "Blog" },
+];
+---
+
+<nav class="flex justify-between px-3 py-2 items-center">
+    <div class="flex gap-x-4">
+        {
+            navItems.map(({ href, text }) => (
+                <a
+                    href={href}
+                    class={`hover:text-purple-500 transition-colors ${
+                        Astro.url.pathname === href
+                            ? "underline underline-offset-4 text-purple-500"
+                            : ""
+                    }`}
+                >
+                    {text}
+                </a>
+            ))
+        }
+    </div>
+    <ThemeToggle />
+</nav>

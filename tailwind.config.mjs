@@ -5,5 +5,8 @@ export default {
 	theme: {
 		extend: {},
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require('@tailwindcss/typography'),
+		require("tailwindcss-animate")
+	],
 }
