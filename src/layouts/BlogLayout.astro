@@ -1,5 +1,5 @@
 ---
-const { frontmatter } = Astro.props;
+const { frontmatter, remarkPluginFrontmatter } = Astro.props;
 import { ArrowLeft, UserCircle, Calendar, Clock } from "lucide-astro";
 import GenericLayout from "../layouts/GenericLayout.astro";
 import { convertDateFormat } from "../lib/helper";
@@ -40,7 +40,8 @@ import { convertDateFormat } from "../lib/helper";
                         {convertDateFormat(frontmatter.pubDate)}
                     </span>
                     <span class="inline-flex items-center">
-                        <Clock className="mr-1 h-4 w-4" /> 5 min read
+                        <Clock className="mr-1 h-4 w-4" />
+                        {remarkPluginFrontmatter.minutesRead}
                     </span>
                 </div>
 
@@ -58,7 +59,7 @@ import { convertDateFormat } from "../lib/helper";
                 </div>
 
                 <!-- Main data -->
-                <div class="prose">
+                <div class="prose prose-headings:underline">
                     <slot />
                 </div>
             </div>
