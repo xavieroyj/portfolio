@@ -33,3 +33,11 @@ const { title, description, ogImage = "/default-banner.png" } = Astro.props;
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(ogImage, Astro.url)} />
+
+<!-- RSS Link auto discovery -->
+<link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Xavier's Blog"
+    href={new URL("rss.xml", Astro.site)}
+/>
