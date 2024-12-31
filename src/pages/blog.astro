@@ -2,9 +2,9 @@
 import { Rss } from "lucide-astro";
 import GenericLayout from "../layouts/GenericLayout.astro";
 import { convertDateFormat } from "../lib/helper";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-const blogEntries = await getCollection("blogs", ({ data }) => {
+const blogEntries = await getCollection("blogs", ({ data }: CollectionEntry<'blogs'>) => {
     return data.draft !== true;
 });
 ---
