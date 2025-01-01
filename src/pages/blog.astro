@@ -38,16 +38,16 @@ const blogEntries = await getCollection("blogs", ({ data }: CollectionEntry<'blo
                     return (
                         <section>
                             <div>
-                                <h2 class="text-2xl font-semibold underline">
+                                <h2 class="text-2xl font-semibold underline dark:text-white">
                                     <a href={`/blogs/${post.slug}/`}>
                                         {post.data.title}
                                     </a>
                                 </h2>
-                                <p class="text-sm text-gray-500 mb-4">
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
                                     {convertDateFormat(post.data.pubDate)}
                                 </p>
                             </div>
-                            <p>{post.data.description}</p>
+                            <p class="dark:text-gray-300">{post.data.description}</p>
                         </section>
                     );
                 })
