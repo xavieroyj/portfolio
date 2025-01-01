@@ -1,8 +1,8 @@
 ---
-import { Rss } from "lucide-astro";
 import GenericLayout from "../layouts/GenericLayout.astro";
 import { convertDateFormat } from "../lib/helper";
 import { getCollection, type CollectionEntry } from "astro:content";
+import { Icon } from 'astro-icon/components';
 
 const blogEntries = await getCollection("blogs", ({ data }: CollectionEntry<'blogs'>) => {
     return data.draft !== true;
@@ -25,7 +25,7 @@ const blogEntries = await getCollection("blogs", ({ data }: CollectionEntry<'blo
                     <button
                         class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3"
                     >
-                        <Rss class="h-4 w-4 mr-2" />
+                        <Icon name="rss" />
                         Subscribe
                     </button>
                 </div>

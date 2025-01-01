@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import { remarkReadingTime } from './integrations/remark-reading-time.mjs';
+import icon from "astro-icon";
 
 import sitemap from '@astrojs/sitemap';
 
@@ -15,6 +16,7 @@ export default defineConfig({
   integrations: [
     tailwind(),
     react(),
-    sitemap()
+    sitemap(),
+    icon(),
   ]
 });

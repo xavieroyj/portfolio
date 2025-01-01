@@ -1,6 +1,6 @@
 ---
 import GenericLayout from "../layouts/GenericLayout.astro";
-import { Github, Linkedin, Twitter } from "lucide-astro";
+import { Icon } from 'astro-icon/components';
 ---
 
 <GenericLayout title="Contact Me">
@@ -22,7 +22,7 @@ import { Github, Linkedin, Twitter } from "lucide-astro";
                     class="p-2.5 rounded-full border border-gray-200 dark:border-gray-700/50 hover:border-purple-500 dark:hover:border-purple-500 transition-colors duration-300"
                     aria-label="GitHub"
                 >
-                    <Github class="w-5 h-5" />
+                    <Icon name="github" class="w-5 h-5" />
                 </a>
                 <a
                     href="https://www.linkedin.com/in/xavieroyj/"
@@ -30,7 +30,7 @@ import { Github, Linkedin, Twitter } from "lucide-astro";
                     class="p-2.5 rounded-full border border-gray-200 dark:border-gray-700/50 hover:border-purple-500 dark:hover:border-purple-500 transition-colors duration-300"
                     aria-label="LinkedIn"
                 >
-                    <Linkedin class="w-5 h-5" />
+                    <Icon name="linkedin" class="w-5 h-5" />
                 </a>
                 <a
                     href="https://x.com/xavieroyj"
@@ -38,7 +38,7 @@ import { Github, Linkedin, Twitter } from "lucide-astro";
                     class="p-2.5 rounded-full border border-gray-200 dark:border-gray-700/50 hover:border-purple-500 dark:hover:border-purple-500 transition-colors duration-300"
                     aria-label="Twitter"
                 >
-                    <Twitter class="w-5 h-5" />
+                    <Icon name="x" class="w-5 h-5" />
                 </a>
             </div>
 

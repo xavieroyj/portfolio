@@ -1,5 +1,5 @@
 ---
-import { Moon, Sun } from "lucide-astro";
+import { Icon } from 'astro-icon/components';
 ---
 
 <button
@@ -8,8 +8,10 @@ import { Moon, Sun } from "lucide-astro";
     id="theme-selector"
     aria-label="Toggle theme"
 >
-    <Sun size="18" class="hidden dark:inline stroke-2 transition-colors" />
-    <Moon size="18" class="dark:hidden stroke-2 transition-colors" />
+
+    <Icon name="sun" class="hidden dark:inline stroke-2 transition-colors" />
+    <Icon name="moon" class="dark:hidden stroke-2 transition-colors" />
+    
     <span class="text-sm dark:hidden">Light</span>
     <span class="hidden dark:inline text-sm">Dark</span>
 </button>

@@ -1,8 +1,9 @@
 ---
 const { frontmatter, remarkPluginFrontmatter } = Astro.props;
-import { ArrowLeft, UserCircle, Calendar, Clock } from "lucide-astro";
+import { Calendar, Clock } from "lucide-astro";
 import GenericLayout from "../layouts/GenericLayout.astro";
 import { convertDateFormat } from "../lib/helper";
+import { Icon } from 'astro-icon/components';
 ---
 
 <GenericLayout
@@ -16,7 +17,7 @@ import { convertDateFormat } from "../lib/helper";
                 href="/blog"
                 class="inline-flex items-center text-sm text-muted-foreground hover:text-primary"
             >
-                <ArrowLeft class="mr-2 h-4 w-4" />
+                <Icon name="arrow-left" class="mr-2 h-4 w-4" />
                 Back to all posts
             </a>
         </div>
@@ -27,7 +28,7 @@ import { convertDateFormat } from "../lib/helper";
                     {frontmatter.title}
                 </h1>
                 <div class="flex items-center space-x-2">
-                    <UserCircle class="h-6 w-6 text-muted-foreground" />
+                    <Icon name="circle-user" class="h-6 w-6 text-muted-foreground" />
                     <div>
                         <p class="text-sm font-medium">{frontmatter.author}</p>
                     </div>
@@ -36,11 +37,11 @@ import { convertDateFormat } from "../lib/helper";
                     class="flex items-center space-x-4 text-sm text-muted-foreground"
                 >
                     <span class="inline-flex items-center">
-                        <Calendar className="mr-1 h-4 w-4" />
+                        <Icon name="calendar" class="mr-1 h-4 w-4" />
                         {convertDateFormat(frontmatter.pubDate)}
                     </span>
                     <span class="inline-flex items-center">
-                        <Clock className="mr-1 h-4 w-4" />
+                        <Icon name="clock" class="mr-1 h-4 w-4" />
                         {remarkPluginFrontmatter.minutesRead}
                     </span>
                 </div>
