@@ -11,35 +11,56 @@ import AnimatedHeader from "../react/AnimatedHeader";
         <div class="md:w-3/5">
             <AnimatedHeader client:load/>
 
-            <div class="grid grid-cols-2 gap-4 pt-4">
-                <AnimatedCard
-                    client:load
-                    title="Projects"
-                    description="See the list of projects that I have done."
-                    direction="left"
-                />
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                <a href="/about#projects" class="h-full">
+                    <AnimatedCard
+                        client:load
+                        title="Projects"
+                        description="Explore my portfolio of completed projects."
+                        direction="left"
+                    />
+                </a>
 
-                <AnimatedCard
-                    client:load
-                    title="Blog"
-                    description="Insights about things i learned everyday."
-                    direction="top"
-                />
+                <a href="/blog" class="h-full">
+                    <AnimatedCard
+                        client:load
+                        title="Blog"
+                        description="Read about my learning journey and insights."
+                        direction="top"
+                    />
+                </a>
                 
-                <AnimatedCard
-                    client:load
-                    title="Contact Me"
-                    description="Drop me a text here if you have any potential collaboration to work on."
-                    direction="bottom"
-                />
+                <a href="/contact" class="h-full">
+                    <AnimatedCard
+                        client:load
+                        title="Contact Me"
+                        description="Get in touch for collaborations and opportunities."
+                        direction="bottom"
+                    />
+                </a>
                 
-                <AnimatedCard
-                    client:load
-                    title="About Me"
-                    description="View my resume and accolades that I have achieved."
-                    direction="right"
-                />
+                <a href="/about" class="h-full">
+                    <AnimatedCard
+                        client:load
+                        title="About Me"
+                        description="Learn about my journey and achievements."
+                        direction="right"
+                    />
+                </a>
             </div>
         </div>
     </main>
 </GenericLayout>
+
+<style>
+    /* Ensure grid items have equal height */
+    .grid {
+        grid-auto-rows: 1fr;
+    }
+    
+    /* Make anchor tags fill their grid cell */
+    .grid > a {
+        display: block;
+        height: 100%;
+    }
+</style>

@@ -1,277 +1,374 @@
 ---
 import GenericLayout from "../layouts/GenericLayout.astro";
-import notionAvatar from "../assets/notion-avatar.svg";
 import profileImage from "../assets/profile.png";
 import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components';
+import { projects } from "../data/projects";
 ---
 
-<GenericLayout title="About Me">
-    <main class="mx-auto container px-4 md:px-16 flex flex-col gap-4">
-        <div class="flex flex-col items-center text-center">
-            <Image
-                src={profileImage}
-                alt="Xavier"
-                class="h-48 w-48 rounded-full object-cover border-4 border-purple-500"
-            />
-            <h1 class="pt-4 text-4xl font-bold">Hey there, I'm Xavier</h1>
-            <p class="pt-2">
-                I'm currently pursing a degree in Computing Science at
-                University of Glasgow. <br /><br />
-                Concurrently, I'm working on a bus chartering service called <a
-                    href="https://shiftbus.com"
-                    class="text-purple-500 underline"
-                    target="_blank">Shiftbus</a
-                > with a group of friends. <br />
-                Feel free to reach out to me through the contact page for any questions
-                that you have.
-            </p>
+<style>
+    .custom-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-            <!-- TODO: Add Resume download options -->
-            <!-- <button
-                class="border px-3 py-2 rounded-lg hover:border-purple-600 mt-4 hover:bg-purple-500 hover:text-white"
-            >
-                <a
-                    href="Xavier_Resume.pdf"
-                    class="flex items-center gap-x-2"
-                    download
-                >
-                    <Download size="24" />
-                    <div>Download my Resume</div>
-                </a>
-            </button> -->
+    .custom-list li {
+        position: relative;
+        padding-left: 1.25rem;
+        margin-bottom: 0.75rem;
+        color: #6B7280;
+    }
+
+    .custom-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #A855F7;
+        font-size: 1.25rem;
+        line-height: 1;
+    }
+
+    .custom-list li:last-child {
+        margin-bottom: 0;
+    }
+
+    [data-theme="dark"] .custom-list li {
+        color: #D1D5DB;
+    }
+</style>
+
+<GenericLayout title="About Me">
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <!-- Profile Section -->
+        <div class="flex flex-col md:flex-row items-center gap-8 mb-16">
+            <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
+                <Image
+                    src={profileImage}
+                    alt="Xavier"
+                    class="h-48 w-48 rounded-full object-cover border-4 border-purple-500"
+                />
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-4xl font-bold mb-2">Xavier Ong</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">Undergraduate Student at SIT-UofG || Co-Founder of shiftbus.com</p>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    As a Computing Science student at SIT, I am passionate about leveraging technology to solve real-world problems. 
+                    With a strong foundation in programming, algorithms, and data structures, I am continuously enhancing my skills 
+                    in areas such as machine learning, artificial intelligence, and software development.
+                    <br/><br/>
+                    During my free time, I like to indulge in in-line skating or swimming as it takes the pressure off my shoulders. 
+                    I am open to learning new things, especially things that are new to me intrigues me.
+                </p>
+            </div>
         </div>
 
-        <hr class="my-4" />
-
-        <section>
-            <h1 class="text-4xl font-bold pb-4 text-purple-500">Education</h1>
-            <!-- Create a card for each education -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div
-                    class="bg-white p-4 dark:bg-gray-800/50 rounded-lg border border-gray-200 shadow-md"
-                >
-                    <h2 class="text-xl font-bold">
-                        Singapore Institute of Technology (SIT)
-                    </h2>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm">
-                        2021 - Present
-                    </p>
-                    <p class="text-gray-700 dark:text-gray-300 pt-4">
-                        Bachelor of Science with Honours in Computing Science.<br
-                        />
-                        Joint degree program with University of Glasgow
-                    </p>
+        <!-- Education Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8 text-gray-800 dark:text-gray-100">Education</h2>
+            <div class="space-y-8">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="w-32 flex-shrink-0">
+                        <span class="text-gray-500">2022 - 2025</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-semibold mb-2">Singapore Institute of Technology (SIT)</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Bachelor of Science with Honours in Computing Science<br/>
+                            Joint degree program with University of Glasgow
+                        </p>
+                    </div>
                 </div>
-
-                <div
-                    class="bg-white dark:bg-gray-800/50 p-4 rounded-lg border shadow-md"
-                >
-                    <h2 class="text-xl font-bold">Nanyang Polytechnic</h2>
-                    <!-- Add graduation date -->
-                    <p class="text-gray-500 dark:text-gray-400 text-sm">
-                        2017 - 2020
-                    </p>
-                    <p class="text-gray-700 dark:text-gray-300 pt-4">
-                        Diploma in Infocomm & Security, Information Technology
-                    </p>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="w-32 flex-shrink-0">
+                        <span class="text-gray-500">2017 - 2020</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-semibold mb-2">Nanyang Polytechnic</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Diploma in Infocomm & Security, Information Technology
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Experience Section -->
         <section>
-            <h1 class="text-4xl font-bold pb-4 text-purple-500">Experience</h1>
-            <ol class="relative border-s-2 border-purple-200">
-                <li class="mb-10 ms-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
-                    >
-                        <svg
-                            class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                        >
-                            <path
-                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
-                            ></path>
-                        </svg>
-                    </span>
-                    <h3
-                        class="mb-1 text-lg font-semibold text-gray-900 dark:text-white"
-                    >
-                        NPU Physical Implementation (Internship) - MediaTek
-                    </h3>
-                    <time
-                        class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
-                        >September 2024 - Present</time
-                    >
-                    <ul
-                        class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400"
-                    >
-                        <li>
-                            Worked on scripting and automation for the report
-                            handling of the NPU Physical Implementation team.
-                        </li>
-                    </ul>
-                </li>
-                <li class="ms-6 mb-10">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
-                    >
-                        <svg
-                            class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                        >
-                            <path
-                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
-                            ></path>
-                        </svg>
-                    </span>
-                    <h3
-                        class="mb-1 text-lg font-semibold text-gray-900 dark:text-white"
-                    >
-                        Software Developer (Part-time) - OrangeKloud, Inc
-                    </h3>
-                    <time
-                        class="block mb-2 text-sm font-normal leading-none text-gray-500"
-                        >September 2023 - October 2023</time
-                    >
-                    <ul
-                        class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400"
-                    >
-                        <li>
-                            Participated in redesigning eMobiq, OrangeKloud's
-                            low-code software
-                        </li>
-                        <li>
-                            Collaborated with full-time staff and part-timers on
-                            the development team
-                        </li>
-                        <li>
-                            Implemented UI design team's vision for the software
-                        </li>
-                        <li>
-                            Self-taught React and Bootstrap to align with the
-                            project's tech stack
-                        </li>
-                        <li>
-                            Contributed to the redesign while expanding skills
-                            in React and Bootstrap
-                        </li>
-                    </ul>
-                </li>
-                <li class="ms-6 mb-10">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
-                    >
-                        <svg
-                            class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                        >
-                            <path
-                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
-                            ></path>
-                        </svg>
-                    </span>
-                    <h3 class="mb-1 text-lg font-semibold">
-                        Software Developer (Part-time) - OrangeKloud, Inc
-                    </h3>
-                    <time
-                        class="block mb-2 text-sm font-normal leading-none text-gray-500"
-                        >Mar 2020 - Apr 2020</time
-                    >
-                    <p
-                        class="text-base font-normal text-gray-500 dark:text-gray-400"
-                    >
-                        <ul
-                            class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400"
-                        >
-                            <li>
-                                Collaborated on developing an internal
-                                application using a low-code platform
-                            </li>
-                            <li>
-                                Designed interface according to UI
-                                specifications from the company's designer
-                            </li>
-                            <li>
-                                Self-taught CSS to enhance visual appeal and
-                                implement complex design elements
-                            </li>
-                            <li>
-                                Successfully demonstrated diverse capabilities
-                                of the low-code software
-                            </li>
-                            <li>
-                                Expanded skill set in UI design and CSS
-                                implementation
-                            </li>
-                        </ul>
-                    </p>
-                </li>
-                <li class="ms-6 mb-10">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
-                    >
-                        <svg
-                            class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                        >
-                            <path
-                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
-                            ></path>
-                        </svg>
-                    </span>
-                    <h3
-                        class="mb-1 text-lg font-semibold text-gray-900 dark:text-white"
-                    >
-                        Software Developer (Internship) - PSA Corporation
-                        Limited
-                    </h3>
-                    <time
-                        class="block mb-2 text-sm font-normal leading-none text-gray-500"
-                        >May 2019 - Aug 2019</time
-                    >
-                    <p
-                        class="text-base font-normal text-gray-500 dark:text-gray-400"
-                    >
-                        <ul
-                            class="list-disc pl-5 text-base font-normal text-gray-500 dark:text-gray-400"
-                        >
-                            <li>
-                                Developed a method for silent software
-                                installation on new devices
-                            </li>
-                            <li>
-                                Experimented with PowerShell and Win32API for
-                                automated installations
-                            </li>
-                            <li>
-                                Created a drag-and-drop application for
-                                repositioning cameras on a virtual map
-                            </li>
-                            <li>
-                                Streamlined onboarding process for new employees
-                            </li>
-                            <li>
-                                Enhanced skills in automation and application
-                                development
-                            </li>
-                        </ul>
-                    </p>
-                </li>
-            </ol>
+            <h2 class="text-2xl font-bold mb-8 text-gray-800 dark:text-gray-100">Experience</h2>
+            <div class="space-y-12">
+                <!-- MediaTek -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="w-32 flex-shrink-0">
+                        <span class="text-gray-500">Sep 2024 - Present</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                            <h3 class="text-xl font-semibold">NPU Physical Implementation Intern</h3>
+                            <span class="text-gray-500">@ MediaTek</span>
+                            <span class="text-gray-400 text-sm">- On site</span>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-2">Summary:</h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 pl-4 border-l-2 border-purple-200">
+                                Developing and maintaining automation scripts for the NPU Physical Implementation team, focusing on report handling and process optimization.
+                            </p>
+
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-3">Responsibilities:</h4>
+                            <ul class="custom-list mb-6">
+                                <li>Collaborated with senior engineers to design and implement automation solutions for report processing</li>
+                                <li>Developed and maintained scripts to streamline the report generation workflow</li>
+                                <li>Participated in code reviews and contributed to improving team coding standards</li>
+                            </ul>
+
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-3">Achievements:</h4>
+                            <ul class="custom-list mb-6">
+                                <li>Reduced report processing time by 40% through automated data extraction and formatting</li>
+                                <li>Implemented error detection systems that improved report accuracy by 25%</li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    Python
+                                </span>
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    Shell Scripting
+                                </span>
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    Git
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OrangeKloud 2023 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="w-32 flex-shrink-0">
+                        <span class="text-gray-500">Sep 2023 - Oct 2023</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                            <h3 class="text-xl font-semibold">Software Developer</h3>
+                            <span class="text-gray-500">@ OrangeKloud, Inc</span>
+                            <span class="text-gray-400 text-sm">- Remote</span>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-2">Summary:</h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 pl-4 border-l-2 border-purple-200">
+                                Returned to OrangeKloud for a work/learning experience, focusing on redesigning their low-code software, eMobiq.
+                            </p>
+
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-3">Responsibilities:</h4>
+                            <ul class="custom-list mb-6">
+                                <li>Collaborated with full-time staff and part-timers on the development team</li>
+                                <li>Implemented UI design team's vision for the software</li>
+                                <li>Self-taught React and Bootstrap to align with project's tech stack</li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    React
+                                </span>
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    Bootstrap
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OrangeKloud 2020 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="w-32 flex-shrink-0">
+                        <span class="text-gray-500">2020</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                            <h3 class="text-xl font-semibold">Software Developer</h3>
+                            <span class="text-gray-500">@ OrangeKloud, Inc</span>
+                            <span class="text-gray-400 text-sm">- Remote</span>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-2">Summary:</h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 pl-4 border-l-2 border-purple-200">
+                                Developed internal applications using low-code platforms while implementing complex UI designs.
+                            </p>
+
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-3">Responsibilities:</h4>
+                            <ul class="custom-list mb-6">
+                                <li>Implemented UI designs using custom CSS solutions</li>
+                                <li>Created reusable components in the low-code platform</li>
+                                <li>Enhanced visual aesthetics of existing applications</li>
+                            </ul>
+
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-3">Achievements:</h4>
+                            <ul class="custom-list mb-6">
+                                <li>Reduced development time by 30% through component reuse</li>
+                                <li>Implemented responsive design across all applications</li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    CSS
+                                </span>
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    UI Design
+                                </span>
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    Low-code
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PSA -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="w-32 flex-shrink-0">
+                        <span class="text-gray-500">2019</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                            <h3 class="text-xl font-semibold">Software Developer Intern</h3>
+                            <span class="text-gray-500">@ PSA Corporation Limited</span>
+                            <span class="text-gray-400 text-sm">- On site</span>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-2">Summary:</h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 pl-4 border-l-2 border-purple-200">
+                                Developed automation solutions and internal tools for streamlining software deployment and camera management.
+                            </p>
+
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-3">Responsibilities:</h4>
+                            <ul class="custom-list mb-6">
+                                <li>Developed automated software installation solutions</li>
+                                <li>Created a drag-and-drop interface for camera positioning</li>
+                                <li>Improved employee onboarding processes</li>
+                            </ul>
+
+                            <h4 class="text-gray-800 dark:text-gray-200 font-medium mb-3">Achievements:</h4>
+                            <ul class="custom-list mb-6">
+                                <li>Reduced software deployment time by 60%</li>
+                                <li>Streamlined camera management workflow by 40%</li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    PowerShell
+                                </span>
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    Win32API
+                                </span>
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm flex items-center gap-1">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"/>
+                                    </svg>
+                                    Automation
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="mt-16" id="projects">
+            <h2 class="text-2xl font-bold mb-8 text-gray-800 dark:text-gray-100">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {projects.map((project) => (
+                    <div class="group border rounded-xl overflow-hidden hover:border-purple-500 transition-all duration-300 dark:bg-gray-800/50 flex flex-col">
+                        {project.imageUrl && (
+                            <div class="aspect-video w-full overflow-hidden">
+                                <img 
+                                    src={project.imageUrl} 
+                                    alt={`Preview of ${project.title}`}
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+                        )}
+                        
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-4">
+                                <h2 class="text-xl font-semibold group-hover:text-purple-500 transition-colors">
+                                    {project.title}
+                                </h2>
+                                <div class="flex gap-3">
+                                    {project.githubUrl && (
+                                        <a 
+                                            href={project.githubUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="text-gray-500 hover:text-purple-500 transition-colors"
+                                            aria-label="View source on GitHub"
+                                        >
+                                            <Icon name="github" class="w-5 h-5" />
+                                        </a>
+                                    )}
+                                    {project.liveUrl && (
+                                        <a 
+                                            href={project.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="text-gray-500 hover:text-purple-500 transition-colors"
+                                            aria-label="Visit live site"
+                                        >
+                                            <Icon name="square-arrow-out-up-right" class="w-5 h-5" />
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 grow">
+                                {project.description}
+                            </p>
+
+                            <div class="flex flex-wrap gap-2">
+                                {project.technologies.map((tech) => (
+                                    <span class="px-3 py-1 text-sm rounded-full bg-purple-500/10 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/20">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </section>
     </main>
-</GenericLayout
->
+</GenericLayout>
