@@ -1,0 +1,78 @@
+---
+import GenericLayout from "../layouts/GenericLayout.astro";
+import { Icon } from 'astro-icon/components';
+import { projects } from "../data/projects";
+---
+
+<GenericLayout title="Projects">
+    <main class="container mx-auto px-4 py-8 max-w-6xl">
+        <div class="space-y-12">
+            <div class="text-center space-y-2">
+                <h1 class="text-4xl font-bold">Projects</h1>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Here's a collection of projects I've worked on. Each project represents a unique challenge and learning experience.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {projects.map((project) => (
+                    <div class="group border rounded-xl overflow-hidden hover:border-purple-500 transition-all duration-300 dark:bg-gray-800/50 flex flex-col">
+                        {project.imageUrl && (
+                            <div class="aspect-video w-full overflow-hidden">
+                                <img 
+                                    src={project.imageUrl} 
+                                    alt={`Preview of ${project.title}`}
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+                        )}
+                        
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-4">
+                                <h2 class="text-xl font-semibold group-hover:text-purple-500 transition-colors">
+                                    {project.title}
+                                </h2>
+                                <div class="flex gap-3">
+                                    {project.githubUrl && (
+                                        <a 
+                                            href={project.githubUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="text-gray-500 hover:text-purple-500 transition-colors"
+                                            aria-label="View source on GitHub"
+                                        >
+                                            <Icon name="github" class="w-5 h-5" />
+                                        </a>
+                                    )}
+                                    {project.liveUrl && (
+                                        <a 
+                                            href={project.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="text-gray-500 hover:text-purple-500 transition-colors"
+                                            aria-label="Visit live site"
+                                        >
+                                            <Icon name="square-arrow-out-up-right" class="w-5 h-5" />
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 grow">
+                                {project.description}
+                            </p>
+
+                            <div class="flex flex-wrap gap-2">
+                                {project.technologies.map((tech) => (
+                                    <span class="px-3 py-1 text-sm rounded-full bg-purple-500/10 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/20">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </main>
+</GenericLayout>
