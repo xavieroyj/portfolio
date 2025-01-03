@@ -12,33 +12,41 @@ import AnimatedHeader from "../react/AnimatedHeader";
             <AnimatedHeader client:load/>
 
             <div class="grid grid-cols-2 gap-4 pt-4">
-                <AnimatedCard
-                    client:load
-                    title="Projects"
-                    description="See the list of projects that I have done."
-                    direction="left"
-                />
+                <a href="/about#projects">
+                    <AnimatedCard
+                        client:load
+                        title="Projects"
+                        description="See the list of projects that I have done."
+                        direction="left"
+                    />
+                </a>
 
-                <AnimatedCard
-                    client:load
-                    title="Blog"
-                    description="Insights about things i learned everyday."
-                    direction="top"
-                />
+                <a href="/blog">
+                    <AnimatedCard
+                        client:load
+                        title="Blog"
+                        description="Insights about things i learned everyday."
+                        direction="top"
+                    />
+                </a>
                 
-                <AnimatedCard
-                    client:load
-                    title="Contact Me"
-                    description="Drop me a text here if you have any potential collaboration to work on."
-                    direction="bottom"
-                />
+                <a href="/contact">
+                    <AnimatedCard
+                        client:load
+                        title="Contact Me"
+                        description="Drop me a text here if you have any potential collaboration to work on."
+                        direction="bottom"
+                    />
+                </a>
                 
-                <AnimatedCard
-                    client:load
-                    title="About Me"
-                    description="View my resume and accolades that I have achieved."
-                    direction="right"
-                />
+                <a href="/about">
+                    <AnimatedCard
+                        client:load
+                        title="About Me"
+                        description="View my resume and accolades that I have achieved."
+                        direction="right"
+                    />
+                </a>
             </div>
         </div>
     </main>
