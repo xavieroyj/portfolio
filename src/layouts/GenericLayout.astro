@@ -41,4 +41,18 @@ const { title, description = "Xavier's Portfolio", ogImage } = Astro.props;
 			</main>
 		</div>
 	</body>
+
+	<!-- Remove margin and padding on print -->
+	<style>
+		@media print {
+		   @page {
+			  margin: 0;
+		   }
+		   body {
+			margin: 2rem;
+			 zoom: 58%;
+            -webkit-transform: scale(0.58);
+		   }
+		}
+	</style>
 </html>
