@@ -18,7 +18,7 @@ export default function AnimatedCard({ title, description, direction, href }: An
       case 'top':
         return { y: -1000, opacity: 0 };
       case 'bottom':
-        return { y: 100, opacity: 0 };
+        return { y: 1000, opacity: 0 };
     }
   };
 
@@ -26,16 +26,17 @@ export default function AnimatedCard({ title, description, direction, href }: An
     <motion.div
       initial={getInitialPosition()}
       animate={{ x: 0, y: 0, opacity: 1 }}
-      transition={{ 
+      transition={{
         type: "spring",
-        damping: 35,
+        bounce: 0.35,
+        visualDuration: 0.6
       }}
       whileHover={{ scale: 1.05 }}
-      className="border rounded-lg px-4 py-3 hover:border-purple-500 hover:cursor-pointer dark:hover:bg-purple-500 dark:hover:text-white"
+      className="border rounded-lg px-3 py-2 sm:px-4 sm:py-3 hover:border-purple-500 hover:cursor-pointer dark:hover:bg-purple-500 dark:hover:text-white h-full"
     >
-      <div className="flex flex-col justify-center items-center h-full">
-        <h1 className="text-2xl font-bold">{title}</h1>
-        <p className="pt-2 text-center">
+      <div className="flex flex-col justify-center items-center h-full min-h-[120px] sm:min-h-[140px]">
+        <h1 className="text-xl sm:text-2xl font-bold">{title}</h1>
+        <p className="pt-2 text-sm sm:text-base text-center">
           {description}
         </p>
       </div>

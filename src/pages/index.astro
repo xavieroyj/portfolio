@@ -8,11 +8,11 @@ import AnimatedHeader from "../react/AnimatedHeader";
     <main
         class="h-full flex justify-center items-center container mx-auto px-4"
     >
-        <div class="md:w-3/5">
-            <AnimatedHeader client:load/>
+        <div class="w-full sm:w-4/5 md:w-3/4 lg:w-3/5">
+            <AnimatedHeader client:load />
 
-            <div class="grid grid-cols-2 gap-4 pt-4">
-                <a href="/about#projects">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
+                <a href="/about#projects" class="h-full">
                     <AnimatedCard
                         client:load
                         title="Projects"
@@ -21,7 +21,7 @@ import AnimatedHeader from "../react/AnimatedHeader";
                     />
                 </a>
 
-                <a href="/blog">
+                <a href="/blog" class="h-full">
                     <AnimatedCard
                         client:load
                         title="Blog"
@@ -29,8 +29,8 @@ import AnimatedHeader from "../react/AnimatedHeader";
                         direction="top"
                     />
                 </a>
-                
-                <a href="/contact">
+
+                <a href="/contact" class="h-full">
                     <AnimatedCard
                         client:load
                         title="Contact Me"
@@ -38,8 +38,8 @@ import AnimatedHeader from "../react/AnimatedHeader";
                         direction="bottom"
                     />
                 </a>
-                
-                <a href="/about">
+
+                <a href="/about" class="h-full">
                     <AnimatedCard
                         client:load
                         title="About Me"
