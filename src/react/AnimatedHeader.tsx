@@ -11,10 +11,10 @@ export default function AnimatedHeader() {
                 ease: "easeOut"
             }}
         >
-            <h1 className="text-4xl font-bold">
+            <h1 className="text-6xl font-bold">
                 Hi I'm <span className="text-purple-500">Xavier</span>
             </h1>
-            <p className="pt-4 font-mono dark:text-gray-400">
+            <p className="pt-4 text-xl font-mono dark:text-gray-400">
                 I'm an aspiring software engineer and I love to build things. <br />
                 I am currently in my final year studying Computing Science at the
                 Singapore Institute of Technology.
