@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import "../styles/global.css"
 
 interface Props {
 	title: string;
@@ -11,7 +12,7 @@ interface Props {
 const { title, description = "Xavier's Portfolio", ogImage } = Astro.props;
 ---
 
-<html lang="en" class="dark">
+<html lang="en" class="html-gutter">
 	<head>
 		<title>Xavier's Portfolio - {title}</title>
 		<BaseHead

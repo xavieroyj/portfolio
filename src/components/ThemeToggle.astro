@@ -1,22 +1,31 @@
 ---
-import { Icon } from 'astro-icon/components';
+/**
+ * ThemeToggle component for TailwindCSS v4
+ *
+ * Note: For this to work with TailwindCSS v4, you need to add the following to your CSS file:
+ * @custom-variant dark (&:where(.dark, .dark *));
+ *
+ * This sets up the dark variant to apply when the .dark class is present in the HTML tree.
+ */
+import { Sun, Moon } from '@lucide/astro';
 ---
 
 <button
     type="button"
-    class="group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-purple-500 dark:hover:border-purple-500 transition-all"
+    class="group flex items-center gap-2 px-2 py-1 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-purple-500 dark:hover:border-purple-500 transition-all"
     id="theme-selector"
     aria-label="Toggle theme"
 >
 
-    <Icon name="sun" class="hidden dark:inline stroke-2 transition-colors" />
-    <Icon name="moon" class="dark:hidden stroke-2 transition-colors" />
-    
+    <Sun class="hidden dark:inline stroke-2 transition-colors w-4 h-4" />
+    <Moon class="dark:hidden stroke-2 transition-colors w-4 h-4" />
+
     <span class="text-sm dark:hidden">Light</span>
     <span class="hidden dark:inline text-sm">Dark</span>
 </button>
 
 <script>
+    // TailwindCSS v4 dark mode implementation
     const themeToggleButton = document.getElementById("theme-selector");
     const html = document.documentElement;
 
@@ -30,12 +39,15 @@ import { Icon } from 'astro-icon/components';
         }
     }
 
+    // Initialize theme based on localStorage or system preference
+    // This follows the recommended pattern in TailwindCSS v4 docs
     setTheme(
         localStorage.theme === "dark" ||
             (!("theme" in localStorage) &&
                 window.matchMedia("(prefers-color-scheme: dark)").matches),
     );
 
+    // Toggle theme when button is clicked
     themeToggleButton?.addEventListener("click", () => {
         setTheme(!html.classList.contains("dark"));
     });

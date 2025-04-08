@@ -2,7 +2,7 @@
 const { frontmatter, remarkPluginFrontmatter } = Astro.props;
 import GenericLayout from "../layouts/GenericLayout.astro";
 import { convertDateFormat } from "../lib/helper";
-import { Icon } from 'astro-icon/components';
+import { ArrowLeft, Clock, Calendar, CircleUser } from '@lucide/astro';
 ---
 
 <GenericLayout
@@ -10,13 +10,13 @@ import { Icon } from 'astro-icon/components';
     description={frontmatter.description}
     ogImage={frontmatter.heroImage}
 >
-    <main class="container mx-auto px-4 py-8">
+    <main class="container max-w-4xl mx-auto px-4 py-8">
         <div class="mb-8">
             <a
                 href="/blog"
                 class="inline-flex items-center text-sm text-muted-foreground hover:text-primary"
             >
-                <Icon name="arrow-left" class="mr-2 h-4 w-4" />
+                <ArrowLeft class="mr-2 h-4 w-4" />
                 Back to all posts
             </a>
         </div>
@@ -27,7 +27,7 @@ import { Icon } from 'astro-icon/components';
                     {frontmatter.title}
                 </h1>
                 <div class="flex items-center space-x-2">
-                    <Icon name="circle-user" class="h-6 w-6 text-muted-foreground" />
+                    <CircleUser class="h-6 w-6 text-muted-foreground" />
                     <div>
                         <p class="text-sm font-medium">{frontmatter.author}</p>
                     </div>
@@ -36,11 +36,11 @@ import { Icon } from 'astro-icon/components';
                     class="flex items-center space-x-4 text-sm text-muted-foreground"
                 >
                     <span class="inline-flex items-center">
-                        <Icon name="calendar" class="mr-1 h-4 w-4" />
+                        <Calendar class="mr-1 h-4 w-4" />
                         {convertDateFormat(frontmatter.pubDate)}
                     </span>
                     <span class="inline-flex items-center">
-                        <Icon name="clock" class="mr-1 h-4 w-4" />
+                        <Clock class="mr-1 h-4 w-4" />
                         {remarkPluginFrontmatter.minutesRead}
                     </span>
                 </div>
@@ -59,7 +59,7 @@ import { Icon } from 'astro-icon/components';
                 </div>
 
                 <!-- Main data -->
-                <div class="prose prose-headings:underline">
+                <div class="prose dark:prose-invert prose-headings:underline max-w-none w-full">
                     <slot />
                 </div>
             </div>

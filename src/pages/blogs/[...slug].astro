@@ -21,7 +21,5 @@ const { Content, remarkPluginFrontmatter } = await entry.render();
     frontmatter={entry.data}
     remarkPluginFrontmatter={remarkPluginFrontmatter}
 >
-    <div class="prose dark:prose-invert max-w-none">
-        <Content />
-    </div>
+    <Content />
 </BlogLayout>
