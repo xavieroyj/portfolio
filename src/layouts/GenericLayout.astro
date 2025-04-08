@@ -1,7 +1,8 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import "../styles/global.css"
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
 	title: string;
@@ -20,16 +21,38 @@ const { title, description = "Xavier's Portfolio", ogImage } = Astro.props;
 			description={description}
 			ogImage={ogImage}
 		/>
+		<ClientRouter />
+
 		<script is:inline>
-			if (
-				localStorage.theme === "dark" ||
-				(!("theme" in localStorage) &&
-					window.matchMedia("(prefers-color-scheme: dark)").matches)
-			) {
-				document.documentElement.classList.add("dark");
-			} else {
-				document.documentElement.classList.remove("dark");
-			}
+			const setTheme = () => {
+				const theme = (() => {
+					if (
+						typeof localStorage !== "undefined" &&
+						localStorage.getItem("theme")
+					) {
+						return localStorage.getItem("theme");
+					}
+					if (
+						window.matchMedia("(prefers-color-scheme: dark)")
+							.matches
+					) {
+						return "dark";
+					}
+					return "light";
+				})();
+
+				if (theme === "light") {
+					document.documentElement.classList.remove("dark");
+				} else {
+					document.documentElement.classList.add("dark");
+				}
+
+				window.localStorage.setItem("theme", theme || "light");
+			};
+
+			setTheme();
+
+			document.addEventListener("astro:after-swap", setTheme);
 		</script>
 	</head>
 
@@ -41,19 +64,17 @@ const { title, description = "Xavier's Portfolio", ogImage } = Astro.props;
 				<slot />
 			</main>
 		</div>
-	</body>
-
-	<!-- Remove margin and padding on print -->
+	</body><!-- Remove margin and padding on print -->
 	<style>
 		@media print {
-		   @page {
-			  margin: 0;
-		   }
-		   body {
-			margin: 2rem;
-			 zoom: 58%;
-            -webkit-transform: scale(0.58);
-		   }
+			@page {
+				margin: 0;
+			}
+			body {
+				margin: 2rem;
+				zoom: 58%;
+				-webkit-transform: scale(0.58);
+			}
 		}
 	</style>
 </html>
